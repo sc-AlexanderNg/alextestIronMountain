@@ -1,0 +1,134 @@
+.image-hero {
+  position: relative;
+  height: 350px;
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 160%;
+  max-width: 1920px;
+  clear: both;
+  margin: auto;
+}
+
+.image-hero.shortened-hero {
+  height: 200px;
+}
+
+.image-hero::after {
+  content: '';
+  background: linear-gradient(
+    1.5deg,
+    rgba(0 96 198 / 80%) 1.38%,
+    rgba(20 71 125 / 0%) 98.84%
+  );
+  mix-blend-mode: multiply;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.content-container {
+  width: 100%;
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline-start: 0;
+  display: flex;
+  align-items: end;
+  padding-top: 50px;
+  background: linear-gradient(
+    180deg,
+    rgba(0 0 0 / 0%) 0%,
+    rgba(0 0 0 / 79%) 100%
+  );
+}
+
+.content {
+  padding-block-start: 0;
+  padding-inline: 20px;
+  padding-block-end: 30px;
+}
+
+.shortened-hero .content {
+  padding-block-end: 16px;
+}
+
+.shortened-hero .content-container {
+  background: linear-gradient(
+    180deg,
+    rgba(0 0 0 / 0%) 0%,
+    rgba(0 0 0 / 50%) 100%
+  );
+  padding-top: 50px;
+  width: 100%;
+}
+
+.content > * {
+  margin-bottom: 8px;
+}
+
+.title {
+  color: var(--color-white);
+  text-shadow: 0 4px 10px rgba(0 0 0 / 30%);
+}
+
+.sub-title {
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 125%;
+}
+
+.description {
+  max-width: 600px;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  z-index: -1;
+}
+
+@media screen and (width >= 1280px) {
+  .image-hero {
+    height: 550px;
+  }
+
+  .image-hero::after {
+    background: linear-gradient(
+      78.77deg,
+      rgba(0 96 198 / 72%) 17.86%,
+      rgba(20 71 125 / 27%) 67.57%
+    );
+  }
+
+  .image-hero.shortened-hero {
+    height: 300px;
+  }
+
+  .image-hero.shortened-hero::after {
+    background: linear-gradient(
+      78.77deg,
+      rgba(0 96 198 / 64%) 17.86%,
+      rgba(20 71 125 / 24%) 67.57%
+    );
+  }
+
+  .content-container {
+    height: 324px;
+    padding-top: 0;
+  }
+
+  .shortened-hero .content-container {
+    height: 100%;
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .content {
+    padding-inline-start: 100px;
+  }
+}

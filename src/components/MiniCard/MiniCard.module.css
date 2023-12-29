@@ -1,0 +1,124 @@
+.mini-card-container {
+  max-width: 1920px;
+  margin: auto;
+  clear: both;
+  padding: 50px 20px;
+  container-type: inline-size;
+  container-name: mini-card-container;
+}
+
+.headline {
+  color: var(--color-im-dark-blue);
+  margin-bottom: 35px;
+}
+
+.right .headline {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--color-im-grey);
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  width: calc(100% / 3 - 20px);
+  min-height: 80px;
+  text-decoration: none;
+  transition: box-shadow 300ms ease-in-out;
+  padding-block: 18px;
+  padding-inline-end: 30px;
+  padding-inline-start: 37px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light-gray);
+  border-inline-start-width: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.card::before {
+  width: 7px;
+  height: 100%;
+  border-start-start-radius: 5px;
+  border-start-end-radius: 0;
+  border-end-start-radius: 0;
+  border-end-end-radius: 5px;
+  background: var(--color-dark-blue-gradient);
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.card:hover {
+  box-shadow: 0 4px 15px 0 #00000026;
+}
+
+.card .title {
+  min-width: auto;
+  border-bottom: 1px solid var(--color-white);
+  padding: 0;
+  max-width: max-content;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.02em;
+  transition: border-color 300ms ease-in-out;
+  text-transform: none;
+  margin-bottom: 10px;
+}
+
+.card:hover .title {
+  border-color: var(--color-im-mid-blue);
+}
+
+.description {
+  color: var(--color-im-grey);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card[data-theme='teal']::before {
+  background: var(--color-teal-gradient);
+}
+
+.card[data-theme='purple']::before {
+  background: var(--color-purple-gradient);
+}
+
+@container mini-card-container (max-width: 1000px) {
+  .mini-card {
+    max-width: 1440px;
+    margin: auto;
+  }
+
+  .cards {
+    flex-direction: column;
+  }
+
+  .card {
+    width: initial;
+    flex-grow: 1;
+  }
+
+  .right .headline {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .content {
+    padding: 18px 30px;
+  }
+}
+
+@media screen and (width >= 1280px) {
+  .mini-card-container {
+    padding: 50px 100px;
+    width: 100%;
+  }
+}

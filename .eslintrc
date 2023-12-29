@@ -1,0 +1,51 @@
+{
+  "root": true,
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:yaml/recommended",
+    "plugin:prettier/recommended",
+    "stylelint"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "yaml"
+  ],
+  "rules": {
+    "n/no-missing-import": "off",
+    "@next/next/no-img-element": "off", // Don't force next/image
+    "jsx-a11y/alt-text": [
+      "warn",
+      {
+        "elements": [
+          "img"
+        ]
+      }
+    ], // Don't force alt for <Image/> (sourced from Sitecore media)
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-explicit-any": "error",
+    "jsx-quotes": [
+      "error",
+      "prefer-double"
+    ],
+    "prettier/prettier": [
+      "warn",
+      {
+        "endOfLine": "auto",
+        "trailingComma": "es5",
+        "tabWidth": 2,
+        "semi": true,
+        "singleQuote": true
+      }
+    ],
+    "no-shadow": "off",
+  },
+  "globals": {
+    "React": "readonly",
+    "JSX": "readonly"
+  }
+}

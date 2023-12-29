@@ -1,0 +1,517 @@
+/* stylelint-disable no-descending-specificity */
+
+/* STANDARD SETTINGS */
+.teaser {
+  --background-color: transparent;
+
+  background-color: var(--background-color);
+  position: relative;
+  margin: 20px;
+
+  @media screen and (width >= 1024px) {
+    margin: 20px auto;
+  }
+}
+
+.teaser > div {
+  margin: 0;
+
+  @media screen and (width >= 1024px) {
+    min-height: 300px;
+  }
+}
+
+/* two column container */
+.teaser div[data-is-two-col='true'] {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (width >= 1024px) {
+    flex-flow: row nowrap;
+    gap: 60px;
+    padding: 0 100px;
+  }
+}
+
+.teaser div[data-is-two-col='true'] > div:first-child div[data-is-text='true'] {
+  margin: 0 0 40px;
+  max-width: 100%;
+
+  @media screen and (width >= 1024px) {
+    margin: auto;
+  }
+}
+
+.teaser
+  div[data-is-two-col='true']
+  > div:nth-child(2)
+  div[data-is-text='true'] {
+  margin: 40px auto 0;
+
+  @media screen and (width >= 1024px) {
+    margin: auto;
+  }
+}
+
+.teaser div[data-is-two-col='true'] > div:has(div[data-is-text='true']) button,
+.teaser div[data-is-two-col='true'] div[data-is-video='true'] button {
+  min-height: fit-content;
+}
+
+/* Image */
+
+/* column with image */
+.teaser div[data-is-two-col='true'] > div:has(div[data-imagetype]) {
+  flex-grow: 1;
+  max-width: 100%;
+  align-self: baseline;
+  width: 100%;
+
+  @media screen and (width >= 1024px) {
+    width: min-content;
+  }
+}
+
+.teaser div[data-is-two-col='true'] > div:has(div[data-is-text='true']) {
+  @media screen and (width >= 1024px) {
+    margin: auto;
+    width: 50%;
+  }
+}
+
+.teaser div[data-imagetype] {
+  max-width: 100%;
+}
+
+.teaser img {
+  border-radius: 10px;
+  width: 100%;
+  object-fit: cover;
+  min-width: 100%;
+  height: auto;
+}
+
+.teaser img + p,
+.teaser img ~ a {
+  display: none;
+}
+
+/* column with text */
+.teaser div[data-is-two-col='true'] > div > div[data-is-text='true'] {
+  margin: 0;
+}
+
+/* Video */
+
+/* column with video */
+.teaser div[data-is-two-col='true'] > div:has(div[data-is-video='true']) {
+  width: 100%;
+
+  @media screen and (width >= 1024px) {
+    width: 50%;
+  }
+}
+
+/* video hover */
+.teaser
+  div[data-is-two-col='true']
+  > div:has(div[data-is-video='true']):hover
+  > div[data-is-video='true']
+  > div {
+  background-size: 150%;
+  cursor: pointer;
+}
+
+/* video container */
+.teaser div[data-is-two-col='true'] div > div[data-is-video='true'] {
+  width: 100%;
+  height: 233px;
+  margin-block-end: 0;
+  padding-inline: 0;
+
+  @media screen and (width >= 1024px) {
+    height: auto;
+  }
+}
+
+/* video */
+.teaser
+  div[data-is-two-col='true']
+  > div:has(div[data-is-video='true'])
+  > div[data-is-video='true']
+  > div {
+  height: 100%;
+  background-size: 130%;
+  transition: 300ms ease-in-out background-size;
+  margin-bottom: 0;
+}
+
+/* BACKGROUND COLOR SETTINGS */
+.teaser[data-background-color='dark'],
+.teaser[data-background-color='light-gray'],
+.teaser[data-background-color='white'],
+.teaser[data-theme='background-color'] {
+  max-width: 100dvw;
+  margin: 0;
+  padding: 50px 20px;
+}
+
+.teaser[data-background-color='dark'] {
+  background-color: var(--color-background-3);
+  color: var(--color-white);
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+.teaser[data-background-color='dark'] :global(.font-eyebrow) {
+  color: var(--color-white);
+}
+
+.teaser[data-background-color='light-gray'] {
+  background-color: var(--color-background-2);
+}
+
+.teaser[data-background-color='white'] {
+  background-color: var(--color-white);
+}
+
+/* FULL BLEED SETTINGS */
+.teaser[data-theme='full-bleed'] {
+  padding: 0;
+  height: fit-content;
+  width: 100dvw;
+  margin: 0;
+  max-width: 100%;
+
+  @media screen and (width >= 1024px) {
+    max-height: fit-content;
+  }
+}
+
+.teaser[data-theme='full-bleed'] > div {
+  min-width: 100dvw;
+  margin: 0 auto;
+}
+
+/* two column container */
+.teaser[data-theme='full-bleed'] div[data-is-two-col='true'] {
+  min-width: 100dvw;
+  height: 100%;
+  align-content: start;
+  gap: 40px;
+  margin: 0;
+
+  @media screen and (width >= 1024px) {
+    justify-content: space-between;
+    gap: 0;
+    flex-grow: 1;
+    height: auto;
+    max-height: fit-content;
+    padding: 0;
+  }
+}
+
+/* margin for top text */
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  > div:first-child
+  div[data-is-text='true'] {
+  margin: 40px 0 0;
+  max-width: 100%;
+
+  @media screen and (width >= 1024px) {
+    margin-block: 40px;
+    margin-inline-end: 40px;
+    margin-inline-start: 0;
+  }
+}
+
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  > div:last-child
+  div[data-is-text='true'] {
+  margin: 0;
+  max-width: 100%;
+
+  @media screen and (width >= 1024px) {
+    margin-block: 40px;
+    margin-inline-end: 0;
+    margin-inline-start: 40px;
+  }
+}
+
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  > div:last-of-type
+  > div:has(div[data-is-text='true']) {
+  /* stylelint-disable-next-line value-no-vendor-prefix */
+  width: -webkit-fill-available;
+}
+
+/* Full Bleed With Image */
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  > div:has(div[data-imagetype]) {
+  /* column with image */
+  min-width: 100dvw;
+  height: 260px;
+  display: flex;
+  overflow: hidden;
+
+  @media screen and (width >= 1024px) {
+    min-width: 50%;
+    max-width: 55%;
+    min-height: 550px;
+    height: 100%;
+  }
+}
+
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  div[data-imagetype] {
+  width: 100%;
+  height: 260px;
+
+  @media screen and (width >= 1024px) {
+    min-height: 550px;
+    height: 550px;
+    flex-grow: 1;
+  }
+}
+
+/* column without image */
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  div:has(div[data-is-text='true']) {
+  margin: auto 20px;
+  width: auto;
+
+  @media screen and (width >= 1024px) {
+    display: flex;
+    flex-grow: 1;
+    min-height: 100%;
+    margin: 0;
+    height: fit-content;
+  }
+}
+
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  > div
+  div:has(div[data-is-text='true']) {
+  align-items: center;
+}
+
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  > div:first-of-type
+  div:has(div[data-is-text='true']) {
+  margin: auto 0;
+  padding: 0;
+
+  @media screen and (width >= 1024px) {
+    padding-block: 0;
+    padding-inline-end: 0;
+    padding-inline-start: 100px;
+  }
+}
+
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  > div:last-of-type
+  div:has(div[data-is-text='true']) {
+  margin: auto 0;
+  padding: 0;
+
+  @media screen and (width >= 1024px) {
+    padding-block: 0;
+    padding-inline-end: 100px;
+    padding-inline-start: 0;
+  }
+}
+
+/* image */
+.teaser[data-theme='full-bleed'] img,
+.teaser[data-theme='full-bleed'] a:has(img) {
+  border-radius: 0;
+  width: 100%;
+  min-height: 260px;
+
+  @media screen and (width >= 1024px) {
+    min-height: 100%;
+    height: 100%;
+  }
+}
+
+/* Full Bleed Video */
+
+/* column with video */
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  > div:has(div[data-is-video='true']) {
+  margin: 0;
+
+  @media screen and (width >= 1024px) {
+    min-height: 550px;
+    min-width: 604px;
+    height: 100%;
+  }
+}
+
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  > div:has(div[data-is-text='true'])
+  button {
+  min-height: fit-content;
+}
+
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  div[data-is-video='true']
+  button {
+  min-height: fit-content;
+}
+
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  div[data-is-video='true'] {
+  @media screen and (width >= 1024px) {
+    min-height: 550px;
+    height: 100%;
+  }
+}
+
+.teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  div[data-is-video='true']
+  > div {
+  border-radius: 0;
+}
+
+/* BACKGROUND IMAGE SETTINGS */
+.teaser[data-theme='background-image'] {
+  max-width: 100dvw;
+  min-height: auto;
+  padding: 0;
+  margin: 0;
+
+  @media screen and (width >= 1024px) {
+    min-height: 550px;
+  }
+}
+
+.teaser[data-theme='background-image'] > div {
+  min-width: 100dvw;
+  margin: 0 auto;
+}
+
+/* background image */
+.teaser[data-theme='background-image'] > img {
+  border-radius: 0;
+  position: relative;
+  width: 100dvw;
+  max-height: 260px;
+
+  @media screen and (width >= 1024px) {
+    position: absolute;
+    max-height: 550px;
+  }
+}
+
+/* two column container */
+.teaser[data-theme='background-image'] div[data-is-two-col='true'] {
+  height: auto;
+  position: relative;
+  z-index: 0;
+  align-items: center;
+  padding: 0;
+  min-width: 100dvw;
+
+  @media screen and (width >= 1024px) {
+    height: 550px;
+    z-index: 100;
+    padding: 90px 105px;
+  }
+}
+
+/* column with content */
+.teaser[data-theme='background-image']
+  div[data-is-two-col='true']
+  > div
+  > div
+  > div[data-is-text='true'] {
+  @media screen and (width >= 1024px) {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 60px 50px;
+  }
+}
+
+.teaser[data-theme='background-image'][data-background-color='dark']
+  div[data-is-two-col='true']
+  > div
+  > div
+  > div[data-is-text='true'] {
+  background-color: var(--color-background-3);
+}
+
+.teaser[data-theme='background-image'][data-background-color='light-gray']
+  div[data-is-two-col='true']
+  > div
+  > div
+  > div[data-is-text='true'] {
+  background-color: var(--color-background-1);
+}
+
+/* empty column */
+.teaser[data-theme='background-image']
+  div[data-is-two-col='true']
+  > div:not(:has(> div)) {
+  display: none;
+
+  @media screen and (width >= 1024px) {
+    display: block;
+  }
+}
+
+/* flip if text is left */
+.teaser[data-theme='background-image']:has(
+    div[data-is-two-col='true'] > div:first-of-type > div
+  ) {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @media screen and (width >= 1024px) {
+    display: block;
+  }
+}
+
+.teaser[data-theme='background-image']
+  div[data-is-two-col='true']
+  > div:has(div > div[data-is-text='true']) {
+  width: 100%;
+}
+
+.teaser[data-theme='background-image']
+  div[data-is-two-col='true']
+  > div
+  div[data-is-text='true'] {
+  margin: 20px;
+
+  @media screen and (width >= 1024px) {
+    margin: 0;
+  }
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+:global(.editing-mode)
+  .teaser[data-theme='full-bleed']
+  div[data-is-two-col='true']
+  > div:has(div[data-imagetype])
+  span {
+  height: 100%;
+}
+
+:global(.editing-mode) .teaser :global([data-imagetype]) p,
+:global(.editing-mode) .teaser :global([data-imagetype]) a {
+  display: none;
+}

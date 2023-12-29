@@ -1,0 +1,100 @@
+.homepage-hero {
+  position: relative;
+  background-color: var(--color-background-2);
+  max-width: 1920px;
+  margin: auto;
+}
+
+.persona-image-container {
+  background-color: var(--color-background-2);
+  margin-inline-end: 40px;
+  height: 15.3125rem;
+  background-size: cover;
+}
+
+.content-container {
+  background-color: var(--color-white);
+  padding-block: 2.19rem;
+  padding-inline: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.homepage-hero h1 {
+  color: var(--color-im-dark-blue);
+}
+
+.homepage-hero p {
+  color: var(--color-im-grey);
+}
+
+@media screen and (width >= 768px) {
+  .homepage-hero {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-background-2);
+    margin-block-end: 50px;
+  }
+
+  .persona-image-container {
+    height: 16.375rem;
+    flex: 1 1 48.437%;
+    margin-inline-end: 0;
+  }
+
+  .content-container {
+    border-start-start-radius: 15px;
+    border-start-end-radius: 15px;
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+    flex: 1 1 calc(100% - 48.437%);
+    background-color: inherit;
+    padding-block: 0;
+    padding-inline-start: 1.5rem;
+    padding-inline-end: 3.88rem;
+    top: 0;
+    margin: 0;
+    gap: 1rem;
+  }
+}
+
+@media screen and (width >= 1280px) {
+  .persona-image-container {
+    height: 39.875rem;
+    flex-basis: 40.1877%;
+    background-position: right;
+    margin-inline-end: 0;
+  }
+
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  :global([dir='rtl']) .persona-image-container {
+    background-position: left;
+  }
+
+  .content-container {
+    flex-basis: calc(100% - 40.1877%);
+    padding: 0 8.31rem;
+    gap: 1.88rem;
+  }
+}
+
+@media screen and (width >= 1440px) {
+  .homepage-hero {
+    margin-block-end: 61px;
+  }
+}
+
+@media screen and (width >= 1920px) {
+  .persona-image-container {
+    flex-basis: 43.9063%;
+    background-position: inherit;
+    margin-inline-end: 0;
+  }
+
+  .content-container {
+    flex-basis: calc(100% - 43.9063%);
+    padding-inline-end: 27.75rem;
+  }
+}

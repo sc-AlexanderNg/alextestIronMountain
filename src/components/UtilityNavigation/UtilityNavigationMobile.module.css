@@ -1,0 +1,158 @@
+.utility-navigation {
+  width: 100%;
+}
+
+[data-utility-nav-is-hidden='true'] .utility-navigation {
+  display: none;
+}
+
+.utility-navigation[data-isopen='true'] {
+  height: 100%;
+  position: absolute;
+}
+
+.utility-navigation > .location,
+.utility-navigation > .contact,
+.utility-navigation > .login,
+.utility-navigation > .buy {
+  background-color: var(--color-im-dark-blue);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  position: relative;
+  font: normal 400 12px / 131% var(--font-family-body);
+  letter-spacing: 0.12px;
+  text-transform: capitalize;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255 255 255 / 40%);
+  text-decoration: none;
+}
+
+.utility-navigation > .contact a {
+  text-decoration: none;
+  color: var(--color-white);
+  font: normal 400 12px / 131% var(--font-family-body);
+}
+
+.utility-navigation .icon {
+  height: 22px;
+  width: 22px;
+  margin-inline-end: 10px;
+}
+
+.utility-navigation > .location {
+  background-color: var(--color-white);
+  color: var(--color-im-dark-blue);
+  border-top: 1px solid var(--color-light-gray);
+  border-bottom: 1px solid var(--color-light-gray);
+}
+
+.utility-navigation > .buy {
+  border-bottom: none;
+}
+
+.utility-navigation > .buy a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+.location-l1,
+.location-l2,
+.login-l1,
+.buy-l1 {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-background-1);
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-back {
+  color: var(--color-im-mid-blue);
+  font: normal 400 13px / 131% var(--font-family-body);
+  display: flex;
+  padding: 20px 20px 20px 45px;
+  position: relative;
+  cursor: pointer;
+}
+
+.btn-back::before {
+  content: url('../../assets/icons/caret-left-blue.svg');
+  position: absolute;
+  left: 20px;
+  top: 21px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  border: 1px solid rgba(204 204 204 / 40%);
+  flex-grow: 1;
+  overflow: scroll;
+  gap: 26px;
+}
+
+.links::-webkit-scrollbar {
+  display: none;
+}
+
+.menu-option {
+  font: normal 400 14px / 160% var(--font-family-body);
+  color: var(--color-im-grey);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+}
+
+h4.menu-option::after {
+  content: url('../../assets/icons/caret-right.svg');
+  position: absolute;
+  top: 1px;
+  right: 0;
+}
+
+.title {
+  font: normal 300 24px / 95% var(--font-family-header);
+  color: var(--color-im-dark-blue);
+}
+
+.title-sm {
+  color: rgba(88 89 91 / 80%);
+  font: normal 300 14px / 125% var(--font-family-body);
+}
+
+.country-title {
+  color: var(--color-im-dark-blue);
+  font: normal 400 14px / 160% var(--font-family-body);
+  text-decoration: none;
+}
+
+.language-single,
+.language-multi {
+  color: var(--color-im-grey);
+  font: normal 300 12px / 160% var(--font-family-body);
+  text-decoration: none;
+}
+
+.language-multi {
+  color: var(--color-im-mid-blue);
+}
+
+.language-multi:has(+ .language-multi)::after {
+  content: '|';
+  height: auto;
+  width: auto;
+  padding: 0 10px;
+  color: var(--color-im-grey);
+}
+
+.country-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.language-wrap {
+  display: flex;
+}

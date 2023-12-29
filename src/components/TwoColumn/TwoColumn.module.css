@@ -1,0 +1,167 @@
+.two-column-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  clear: both;
+  margin: 30px 0;
+  container-type: inline-size;
+}
+
+.two-column {
+  width: 100%;
+  max-width: 1920px;
+  margin: auto;
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+.two-column :global(.contact-lead-gen-form) h2 {
+  text-align: start;
+}
+
+@container (min-width: 1000px) {
+  .two-column[data-nested='true'] {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 60px;
+  }
+
+  .two-column[data-nested='true'] > div {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* .two-column[data-nested='true']:first-of-type {
+    padding-left: 100px;
+  } */
+
+  .two-column[data-nested='true']:last-of-type {
+    padding-inline-end: 100px;
+  }
+
+  .two-column[data-nested='true'] > div:last-of-type > * {
+    width: 100%;
+    align-self: flex-end;
+  }
+
+  .two-column[data-proportions='50-50'] > div {
+    width: 50%;
+  }
+
+  .two-column[data-proportions='40-60'] > div:first-of-type,
+  .two-column[data-proportions='60-40'] > div:last-of-type {
+    width: 40%;
+  }
+
+  .two-column[data-proportions='60-40'] > div:first-of-type,
+  .two-column[data-proportions='40-60'] > div:last-of-type {
+    width: 60%;
+  }
+
+  .two-column[data-proportions='33-66'] > div:first-of-type,
+  .two-column[data-proportions='66-33'] > div:last-of-type {
+    width: 34%;
+  }
+
+  .two-column[data-proportions='66-33'] > div:first-of-type,
+  .two-column[data-proportions='33-66'] > div:last-of-type {
+    width: 66%;
+  }
+
+  .two-column[data-proportions='25-75'] > div:first-of-type,
+  .two-column[data-proportions='75-25'] > div:last-of-type {
+    width: 25%;
+  }
+
+  .two-column[data-proportions='75-25'] > div:first-of-type,
+  .two-column[data-proportions='25-75'] > div:last-of-type {
+    width: 75%;
+  }
+
+  .two-column[data-proportions='30-70'] > div:first-of-type,
+  .two-column[data-proportions='70-30'] > div:last-of-type {
+    width: 30%;
+  }
+
+  .two-column[data-proportions='70-30'] > div:first-of-type,
+  .two-column[data-proportions='30-70'] > div:last-of-type {
+    width: 70%;
+  }
+}
+
+@media screen and (width >= 1280px) {
+  .two-column[data-nested='false'] {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 60px;
+  }
+
+  .two-column [data-is-mini-card='true'] {
+    padding: 0;
+    margin-block-start: 40px;
+    margin-block-end: 15px;
+  }
+
+  .two-column[data-nested='false'] > div {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .two-column[data-nested='false']:first-of-type {
+    padding-inline-start: 100px;
+  }
+
+  .two-column[data-nested='false']:last-of-type {
+    padding-inline-end: 100px;
+  }
+
+  .two-column[data-nested='false'] > div:last-of-type > * {
+    width: 100%;
+    align-self: flex-end;
+  }
+
+  .two-column[data-proportions='50-50'] > div {
+    width: 50%;
+  }
+
+  .two-column[data-proportions='40-60'] > div:first-of-type,
+  .two-column[data-proportions='60-40'] > div:last-of-type {
+    width: 40%;
+  }
+
+  .two-column[data-proportions='60-40'] > div:first-of-type,
+  .two-column[data-proportions='40-60'] > div:last-of-type {
+    width: 60%;
+  }
+
+  .two-column[data-proportions='33-66'] > div:first-of-type,
+  .two-column[data-proportions='66-33'] > div:last-of-type {
+    width: 34%;
+  }
+
+  .two-column[data-proportions='66-33'] > div:first-of-type,
+  .two-column[data-proportions='33-66'] > div:last-of-type {
+    width: 66%;
+  }
+
+  .two-column[data-proportions='25-75'] > div:first-of-type,
+  .two-column[data-proportions='75-25'] > div:last-of-type {
+    width: 25%;
+  }
+
+  .two-column[data-proportions='75-25'] > div:first-of-type,
+  .two-column[data-proportions='25-75'] > div:last-of-type {
+    width: 75%;
+  }
+
+  .two-column[data-proportions='30-70'] > div:first-of-type,
+  .two-column[data-proportions='70-30'] > div:last-of-type {
+    width: 30%;
+  }
+
+  .two-column[data-proportions='70-30'] > div:first-of-type,
+  .two-column[data-proportions='30-70'] > div:last-of-type {
+    width: 70%;
+  }
+}

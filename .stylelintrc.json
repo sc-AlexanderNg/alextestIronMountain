@@ -1,0 +1,10 @@
+{
+  "plugins": ["stylelint-prettier"],
+  "rules": {
+    "prettier/prettier":[true, {"endOfLine": "auto"}]
+  },
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-prettier/recommended"
+  ]
+}

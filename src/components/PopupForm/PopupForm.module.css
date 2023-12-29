@@ -1,0 +1,391 @@
+.popup-form.popup-inactive {
+  display: none;
+}
+
+.popup-form.popup-active {
+  position: fixed;
+  inset: 0;
+  background-color: #061626b2;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+.popup {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 818px;
+  padding: 50px 30px;
+  border-radius: 5px;
+  border: 1px solid var(--color-light-gray);
+  background-color: var(--color-background-2);
+  position: relative;
+  margin: 50px 0;
+  inset-inline-start: 50%;
+  transform: translateX(-50%) rotate(0);
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+:global([dir='rtl']) .popup {
+  transform: translateX(50%);
+}
+
+.close-button {
+  display: block;
+  content: '';
+  background-image: url('/static-assets/close-im-grey.svg');
+  background-size: cover;
+  background-position: center;
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+  position: absolute;
+  top: 17px;
+  inset-inline-end: 17px;
+}
+
+.subtitle {
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  color: var(--color-im-grey);
+}
+
+.popup-form h2 {
+  font-family: var(--font-family-header);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 23px;
+  text-align: center;
+  color: var(--color-im-dark-blue);
+  margin-block-start: 10px;
+}
+
+.popup-form form {
+  margin-block-start: 20px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+}
+
+/* stylelint-disable */
+.popup-form form > :global(.form-element):not(:has(input[type='submit'])) {
+  /* stylelint-enable */
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.popup-form form p,
+.popup-form label {
+  font-family: var(--font-family-body);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  color: var(--color-im-grey);
+}
+
+.popup-form form p a {
+  font-family: var(--font-family-body);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: var(--color-im-mid-blue);
+}
+
+.popup-form input:not([type='submit'], [type='checkbox']),
+.popup-form select,
+.popup-form textarea {
+  width: 100%;
+  min-height: 40px;
+  border-radius: 5px;
+  border: 1px solid var(--color-light-gray);
+  background: var(--color-white);
+  padding: 9px 14.5px;
+  color: rgb(88 89 91 / 80%);
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.popup-form textarea {
+  min-height: 120px;
+}
+
+.popup-form select {
+  appearance: none;
+  background-image: url('/static-assets/select-arrow.svg');
+  background-position: bottom 17px right 16px;
+  background-repeat: no-repeat;
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+:global([dir='rtl']) .popup-form select {
+  background-position: bottom 17px left 16px;
+}
+
+.popup-form input:not([type='submit'], [type='checkbox']):focus,
+.popup-form select:focus,
+.popup-form textarea:focus {
+  border: 1px solid var(--color-im-mid-blue);
+  box-shadow: 0 0 5px 0 var(--color-im-mid-blue);
+  outline: none;
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+.popup-form :global(.checkbox) {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  border: none;
+}
+
+.popup-form input[type='checkbox'] {
+  appearance: none;
+  margin: 0;
+  flex-shrink: 0;
+  width: 22px !important;
+  height: 22px;
+  border: 1px solid var(--color-light-grey);
+  background-color: var(--color-white);
+  border-radius: 5px;
+}
+
+.popup-form input[type='checkbox']:checked {
+  border: 1px solid var(--color-im-mid-blue);
+  background-color: var(--color-im-mid-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-form input[type='checkbox']:checked::after {
+  content: url('../../assets/icons/done-white.svg');
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+.popup-form :global(.checkbox) label {
+  line-height: 1;
+}
+
+.popup-form form div:has(input[type='submit']) {
+  margin-block-start: 5px;
+  width: 100%;
+  min-height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: var(--color-orange-gradient);
+  display: flex;
+  justify-content: center;
+}
+
+.popup-form input[type='submit'] {
+  width: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  color: var(--color-white);
+  font-family: var(--font-family-body);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.24px;
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+:global([dir='rtl']) .popup-form input[type='submit'] {
+  background-position: center left;
+}
+
+/* Error styling */
+/* stylelint-disable */
+.popup-form :global(input.error),
+.popup-form :global(select.error),
+.popup-form :global(textarea.error) {
+  /* stylelint-enable */
+  border-color: var(--color-im-red);
+  background-image: url('/static-assets/error.svg');
+  background-size: 15px;
+  background-position: center right 11px;
+  background-repeat: no-repeat;
+}
+
+/* stylelint-disable selector-pseudo-class-no-unknown */
+:global([dir='rtl']) .popup-form :global(input.error),
+:global([dir='rtl']) .popup-form :global(select.error),
+:global([dir='rtl']) .popup-form :global(textarea.error) {
+  /* stylelint-enable selector-pseudo-class-no-unknown */
+  background-position: center left 11px;
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+.popup-form :global(label.error) {
+  color: var(--color-im-red);
+  font-family: var(--font-family-body);
+  font-size: 10px;
+  font-weight: 300;
+}
+
+/* Success Message */
+.success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.success-message .subtitle:not(:empty) {
+  margin-bottom: 10px;
+}
+
+.success-message h2 {
+  margin-block-start: 0;
+  margin-block-end: 30px;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.success-message .message {
+  margin-block-end: 30px;
+}
+
+.success-icon {
+  display: block;
+  content: '';
+  background-image: url('/static-assets/success.svg');
+  background-size: cover;
+  background-position: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.success-text {
+  font-family: var(--font-family-body);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  color: var(--color-im-grey);
+}
+
+@media screen and (width >= 1440px) {
+  .popup {
+    margin: 155px 0 215px;
+    padding: 40px 105px 79px;
+  }
+
+  .close-button {
+    top: 27px;
+    inset-inline-end: 27px;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .popup-form h2 {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  .popup-form form {
+    margin-block-start: 25px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 24px;
+  }
+
+  /* stylelint-disable selector-pseudo-class-no-unknown */
+  .popup-form form :global(.form-element):has(:global(.full-width)),
+  .popup-form form p:global(.full-width) {
+    /* stylelint-enable selector-pseudo-class-no-unknown */
+    grid-column-start: span 2;
+  }
+
+  .popup-form input:not([type='submit'], [type='checkbox']),
+  .popup-form select,
+  .popup-form textarea {
+    padding: 12px 14.5px;
+    font-size: 16px;
+  }
+
+  .popup-form input:not([type='submit'], [type='checkbox']),
+  .popup-form select {
+    min-height: 50px;
+  }
+
+  .popup-form input[type='checkbox'] {
+    width: 20px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  .popup-form label {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 130%;
+  }
+
+  .popup-form select {
+    background-position: bottom 21.5px right 19.75px;
+  }
+
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  :global([dir='rtl']) .popup-form select {
+    background-position: bottom 21.5px left 19.75px;
+  }
+
+  .popup-form form div:has(input[type='submit']) {
+    margin-block-start: 4px;
+    min-height: 50px;
+    grid-column-start: span 2;
+  }
+
+  .popup-form input[type='submit'] {
+    font-size: 13px;
+    letter-spacing: 0.13px;
+  }
+
+  /* Error styling */
+  /* stylelint-disable selector-pseudo-class-no-unknown */
+  .popup-form :global(input.error),
+  .popup-form :global(select.error),
+  .popup-form :global(textarea.error) {
+    /* stylelint-enable selector-pseudo-class-no-unknown */
+    border-width: 2px;
+    background-size: 20px;
+    background-position: center right 15.5px;
+  }
+
+  /* stylelint-disable selector-pseudo-class-no-unknown */
+  :global([dir='rtl']) .popup-form :global(input.error),
+  :global([dir='rtl']) .popup-form :global(select.error),
+  :global([dir='rtl']) .popup-form :global(textarea.error) {
+    /* stylelint-enable selector-pseudo-class-no-unknown */
+    background-position: center left 15.5px;
+  }
+
+  /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+  .popup-form :global(label.error) {
+    font-size: 12px;
+  }
+
+  /* Success Message */
+  .success-message {
+    margin-inline: 85px;
+  }
+
+  .success-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .success-text {
+    font-size: 18px;
+    line-height: 29px;
+  }
+}

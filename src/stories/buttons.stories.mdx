@@ -1,0 +1,407 @@
+import { Meta, Canvas, Source } from '@storybook/blocks';
+import { renderToString } from 'react-dom/server';
+import { format } from 'prettier/standalone';
+import prettierHTML from 'prettier/parser-html';
+
+export const style = {
+  width: '100%',
+  padding: '20px',
+  display: 'flex',
+  gap: '10px',
+};
+
+export const dark = {
+  ...style,
+  backgroundColor: '#14477D',
+};
+
+export const flex = {
+  ...style,
+  backgroundColor: '#E8E8E8',
+  flexDirection: 'column',
+};
+
+export const Primary = `
+    <button class="btn-primary">Primary Button</button>
+    <a class="btn-primary">Primary Link</a>
+`;
+
+export const PrimaryDark = `
+    <button class="btn-primary-dark">Primary Button Dark</button>
+    <a class="btn-primary-dark">Primary Link Dark</a>
+`;
+
+export const PrimarySpan = `
+    <a><span class="btn-primary">Primary Link Span</span></a>
+    <span class="btn-primary">Primary Span</span>
+`;
+
+export const PrimarySpanDark = `
+  <a><span class="btn-primary-dark">Primary Link Span Dark</span></a>
+  <span class="btn-primary-dark">Primary Span Dark</span>
+`;
+
+export const Secondary = `
+    <button class="btn-secondary">Secondary Button</button>
+<a class="btn-secondary">Secondary Link</a>
+`;
+
+export const SecondaryDark = `
+    <button class="btn-secondary-dark">Secondary Button Dark</button>
+<a class="btn-secondary-dark">Secondary Link Dark</a>
+`;
+
+export const SecondarySpan = `
+  <a><span class="btn-secondary">Secondary Link Span</span></a>
+  <span class="btn-secondary">Secondary Span</span>
+`;
+
+export const SecondarySpanDark = `
+  <a><span class="btn-secondary-dark">Secondary Link Span Dark</span></a>
+  <span class="btn-secondary-dark">Secondary Span Dark</span>
+`;
+
+export const Tertiary = `
+    <button class="btn-tertiary">Tertiary Button</button>
+<a class="btn-tertiary">Tertiary Link</a>
+`;
+
+export const TertiaryDark = `
+  <button class="btn-tertiary-dark">Tertiary Button Dark</button>
+  <a class="btn-tertiary-dark">Tertiary Link Dark</a>
+`;
+
+export const TertiarySpan = `
+  <a><span class="btn-tertiary">Tertiary Link Span</span></a>
+  <span class="btn-tertiary">Tertiary Span</span>
+`;
+
+export const TertiarySpanDark = `
+  <a><span class="btn-tertiary-dark">Tertiary Link Span Dark</span></a>
+  <span class="btn-tertiary-dark">Tertiary Span Dark</span>
+`;
+
+export const Blue = `
+    <button class="btn-blue">Blue Button</button>
+<a class="btn-blue">Blue Link</a>
+`;
+
+export const BlueDark = `
+    <button class="btn-blue-dark">Blue Button Dark</button>
+<a class="btn-blue-dark">Blue Link Dark</a>
+`;
+
+export const BlueSpan = `
+  <a><span class="btn-blue">Blue Link Span</span></a>
+  <span class="btn-blue">Blue Span</span>
+`;
+
+export const BlueSpanDark = `
+  <a><span class="btn-blue-dark">Blue Link Span Dark</span></a>
+  <span class="btn-blue-dark">Blue Span Dark</span>
+`;
+
+export const Icon = `
+    <button class="btn-icon" data-icon="icon-shopping-cart">Icon Button</button>
+    <a class="btn-icon" data-icon="icon-shopping-cart">Icon Link</a>
+`;
+
+export const IconDark = `
+    <button class="btn-icon-dark" data-icon="icon-shopping-cart">Icon Button Dark</button>
+<a class="btn-icon-dark" data-icon="icon-shopping-cart">Icon Link Dark</a>
+`;
+
+export const IconSpan = `
+  <a><span class="btn-icon data-icon="icon-shopping-cart">Icon Link Span</span></a>
+  <span class="btn-icon data-icon="icon-shopping-cart">Icon Span</span>
+`;
+
+export const IconSpanDark = `
+  <a><span class="btn-icon-dark">Icon Link Span Dark</span></a>
+  <span class="btn-icon-dark">Icon Span Dark</span>
+`;
+
+export const Download = `
+    <button class="btn-download">Download Button</button>
+<a class="btn-download">Download Link</a>
+`;
+
+export const DownloadDark = `
+    <button class="btn-download-dark">Download Button Dark</button>
+<a class="btn-download-dark">Download Link Dark</a>
+`;
+
+export const DownloadSpan = `
+  <a><span class="btn-download">Download Link Span</span></a>
+  <span class="btn-download">Download Span</span>
+`;
+
+export const DownloadSpanDark = `
+  <a><span class="btn-download-dark">Download Link Span Dark</span></a>
+  <span class="btn-download-dark">Download Span Dark</span>
+`;
+
+export const TagIcon = `
+    <div class="tag-icon" data-icon="icon-shopping-cart">Shopping is Fun!</div>
+`;
+
+<Meta title="Design/Buttons & Links" />
+
+# Buttons & Links
+
+<br />
+<br />
+
+## Primary
+
+<div style={style} dangerouslySetInnerHTML={{ __html: Primary }} />
+<Source code={Primary} />
+
+## Primary Dark
+
+<div style={dark} dangerouslySetInnerHTML={{ __html: PrimaryDark }} />
+<Source code={PrimaryDark} />
+
+### Primary On Dark Background
+
+<div
+  style={dark}
+  data-theme="dark"
+  dangerouslySetInnerHTML={{ __html: Primary }}
+/>
+<Source
+  code={`<div data-theme="dark">${Primary}
+</div>`}
+/>
+
+## Primary Span
+
+<div style={style} dangerouslySetInnerHTML={{ __html: PrimarySpan }} />
+<Source code={PrimarySpan} />
+
+## Primary Span Dark
+
+<div style={dark} dangerouslySetInnerHTML={{ __html: PrimarySpanDark }} />
+<Source code={PrimarySpanDark} />
+
+<br />
+<br />
+
+## Secondary
+
+<div style={style} dangerouslySetInnerHTML={{ __html: Secondary }} />
+<Source code={Secondary} />
+
+## Secondary Dark
+
+<div style={dark} dangerouslySetInnerHTML={{ __html: SecondaryDark }} />
+<Source code={SecondaryDark} />
+
+### Secondary On Dark Background
+
+<div
+  style={dark}
+  data-theme="dark"
+  dangerouslySetInnerHTML={{ __html: Secondary }}
+/>
+<Source
+  code={`<div data-theme="dark">${Secondary}
+</div>`}
+/>
+
+## Secondary Span
+
+<div style={style} dangerouslySetInnerHTML={{ __html: SecondarySpan }} />
+<Source code={SecondarySpan} />
+
+## Secondary Span Dark
+
+<div style={dark} dangerouslySetInnerHTML={{ __html: SecondarySpanDark }} />
+<Source code={SecondarySpanDark} />
+
+<br />
+<br />
+## Tertiary
+
+<div style={style} dangerouslySetInnerHTML={{ __html: Tertiary }} />
+<Source code={Tertiary} />
+
+## Tertiary Dark
+
+<div style={dark} dangerouslySetInnerHTML={{ __html: TertiaryDark }} />
+<Source code={TertiaryDark} />
+
+### Tertiary On Dark Background
+
+<div
+  style={dark}
+  data-theme="dark"
+  dangerouslySetInnerHTML={{ __html: Tertiary }}
+/>
+<Source
+  code={`<div data-theme="dark">${Tertiary}
+</div>`}
+/>
+
+## Tertiary Span
+
+<div style={style} dangerouslySetInnerHTML={{ __html: TertiarySpan }} />
+<Source code={TertiarySpan} />
+
+## Tertiary Span Dark
+
+<div style={dark} dangerouslySetInnerHTML={{ __html: TertiarySpanDark }} />
+<Source code={TertiarySpanDark} />
+
+<br />
+<br />
+## Blue
+
+<div style={style} dangerouslySetInnerHTML={{ __html: Blue }} />
+<Source code={Blue} />
+
+## Blue Dark
+
+<div style={dark} dangerouslySetInnerHTML={{ __html: BlueDark }} />
+<Source code={BlueDark} />
+
+### Blue On Dark Background
+
+<div
+  style={dark}
+  data-theme="dark"
+  dangerouslySetInnerHTML={{ __html: Blue }}
+/>
+<Source
+  code={`<div data-theme="dark">${Blue}
+</div>`}
+/>
+
+## Blue Span
+
+<div style={style} dangerouslySetInnerHTML={{ __html: BlueSpan }} />
+<Source code={BlueSpan} />
+
+## Blue Span Dark
+
+<div style={dark} dangerouslySetInnerHTML={{ __html: BlueSpanDark }} />
+<Source code={BlueSpanDark} />
+
+<br />
+<br />
+
+## Icon
+
+<div style={style} dangerouslySetInnerHTML={{ __html: Icon }} />
+<Source code={Icon} />
+
+## Icon Dark
+
+<div style={dark} dangerouslySetInnerHTML={{ __html: IconDark }} />
+<Source code={IconDark} />
+
+### Icon On Dark Background
+
+<div
+  style={dark}
+  data-theme="dark"
+  dangerouslySetInnerHTML={{ __html: Icon }}
+/>
+<Source
+  code={`<div data-theme="dark">${Icon}
+</div>`}
+/>
+
+## Icon Span
+
+<div style={style} dangerouslySetInnerHTML={{ __html: IconSpan }} />
+<Source code={IconSpan} />
+
+## Icon Span Dark
+
+<div style={dark} dangerouslySetInnerHTML={{ __html: IconSpanDark }} />
+<Source code={IconSpanDark} />
+
+<br />
+<br />
+
+## Download
+
+<div style={style} dangerouslySetInnerHTML={{ __html: Download }} />
+<Source code={Download} />
+
+## Download Dark
+
+<div style={dark} dangerouslySetInnerHTML={{ __html: DownloadDark }} />
+<Source code={DownloadDark} />
+
+### Download On Dark Background
+
+<div
+  style={dark}
+  data-theme="dark"
+  dangerouslySetInnerHTML={{ __html: Download }}
+/>
+<Source
+  code={`<div data-theme="dark">${Download}
+</div>`}
+/>
+
+## Download Span
+
+<div style={style} dangerouslySetInnerHTML={{ __html: DownloadSpan }} />
+<Source code={DownloadSpan} />
+
+## Download Span Dark
+
+<div style={dark} dangerouslySetInnerHTML={{ __html: DownloadSpanDark }} />
+<Source code={DownloadSpanDark} />
+
+<br />
+<br />
+
+## Tag Icon
+
+<div style={style} dangerouslySetInnerHTML={{ __html: TagIcon }} />
+<Source code={TagIcon} />
+
+<br />
+<br />
+
+### Full Width Buttons
+
+<div
+  style={flex}
+  data-button-width="full"
+  dangerouslySetInnerHTML={{ __html: Primary }}
+/>
+<Source
+  code={`<div data-button-width="full">${Primary}
+</div>`}
+/>
+
+<br />
+<br />
+### Button Container - Row
+
+<div
+  data-btn-flex-container="row"
+  dangerouslySetInnerHTML={{ __html: Primary }}
+/>
+<Source
+  code={`<div data-btn-flex-container="row">${Primary}
+</div>`}
+/>
+
+<br />
+<br />
+### Button Container - Column
+
+<div
+  data-btn-flex-container="column"
+  dangerouslySetInnerHTML={{ __html: Primary }}
+/>
+<Source
+  code={`<div data-btn-flex-container="column">${Primary}
+</div>`}
+/>

@@ -1,0 +1,99 @@
+.tile {
+  height: var(--tile-size);
+  width: var(--tile-size);
+  border-radius: var(--tile-border-radius);
+  rotate: 45deg;
+  overflow: hidden;
+  overflow: -webkit-paged-x;
+  position: relative;
+  display: inline-block;
+}
+
+.tile > div[data-tile-gradient] {
+  color: var(--color-white);
+}
+
+.tile > div[data-tile-gradient='teal'] {
+  --tile-gradient: var(--color-teal-gradient);
+}
+
+.tile > div[data-tile-gradient='green'] {
+  --tile-gradient: var(--color-teal-gradient);
+}
+
+.tile > div[data-tile-gradient='purple'] {
+  --tile-gradient: var(--color-purple-gradient);
+}
+
+.tile > div[data-tile-gradient='orange'] {
+  --tile-gradient: var(--color-orange-gradient);
+}
+
+.tile > div[data-tile-gradient='light-blue'] {
+  --tile-gradient: var(--color-light-blue-gradient);
+}
+
+.tile > div[data-tile-gradient='dark-blue'] {
+  --tile-gradient: var(--color-dark-blue-gradient);
+}
+
+.tile[data-border='teal'] {
+  border: 1px solid var(--color-im-teal);
+}
+
+.tile[data-border='yellow'] {
+  border: 1px solid var(--color-im-yellow);
+}
+
+.tile[data-border='green'] {
+  border: 1px solid var(--color-im-green);
+}
+
+.tile[data-border='purple'] {
+  border: 1px solid var(--color-im-purple);
+}
+
+.tile[data-border='red'] {
+  border: 1px solid var(--color-im-red);
+}
+
+.tile[data-border='orange'] {
+  border: 1px solid var(--color-im-orange);
+}
+
+.tile[data-border='light-blue'] {
+  border: 1px solid var(--color-im-light-blue);
+}
+
+.diamond[data-border='mid-blue'] {
+  border: 1px solid var(--color-im-mid-blue);
+}
+
+.diamond[data-border='dark-blue'] {
+  border: 1px solid var(--color-im-dark-blue);
+}
+
+.tile > * {
+  max-width: initial;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  height: calc(var(--tile-size) * 1.41);
+}
+
+.tile > div {
+  width: calc(var(--tile-size) * 1.41);
+  background: var(--tile-gradient);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content > * {
+  text-align: center;
+}

@@ -1,0 +1,9 @@
+diff --git a/node_modules/@sitecore-jss/sitecore-jss/types/index.d.ts b/node_modules/@sitecore-jss/sitecore-jss/types/index.d.ts
+index a0940a7..22218b4 100644
+--- a/node_modules/@sitecore-jss/sitecore-jss/types/index.d.ts
++++ b/node_modules/@sitecore-jss/sitecore-jss/types/index.d.ts
+@@ -7,3 +7,4 @@ export { AxiosResponse } from 'axios';
+ export { NativeDataFetcher, NativeDataFetcherConfig } from './native-fetcher';
+ export { HTMLLink } from './models';
+ export { constants };
++export {CacheClient, CacheOptions, MemoryCacheClient} from './cache-client'

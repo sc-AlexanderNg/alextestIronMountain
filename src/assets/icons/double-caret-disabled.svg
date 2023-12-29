@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="14px" viewBox="0 0 16 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>double-caret-disabled</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="double-caret-disabled" transform="translate(7.721419, 6.800790) scale(-1, 1) translate(-7.721419, -6.800790) translate(0.913538, 0.800781)" stroke="#1B75BC">
+            <path d="M13.1014621,12.000019 L8.27758213,6.960109 C7.90747213,6.573429 7.90747213,5.963879 8.27758213,5.577199 L13.6157621,0" id="Path"></path>
+            <path d="M5.10147213,12.000019 L0.277582125,6.960109 C-0.092527875,6.573429 -0.092526875,5.963879 0.277582125,5.577199 L5.61576213,0" id="Path"></path>
+        </g>
+    </g>
+</svg>

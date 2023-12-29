@@ -1,0 +1,6 @@
+.generated/**/*
+**/*.d.ts
+**/*.js
+src/temp/**/*
+src/lib/**/*
+scripts/**/*

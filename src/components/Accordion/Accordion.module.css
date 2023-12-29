@@ -1,0 +1,139 @@
+.accordion-container {
+  display: flex;
+  clear: both;
+  margin: 50px 0;
+  container-type: inline-size;
+}
+
+.accordion {
+  max-width: 1024px;
+  clear: both;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+
+.accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.title {
+  color: var(--color-im-dark-blue);
+}
+
+.description {
+  color: var(--color-im-grey);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 150%;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.details {
+  border-radius: 5px;
+  border: 1px solid var(--color-light-gray);
+  background-color: var(--color-white);
+  transition:
+    box-shadow 300ms ease-in-out,
+    background-color 300ms ease-in-out;
+}
+
+.details:hover {
+  box-shadow: 0 4px 15px 0 #00000026;
+}
+
+.details[open] {
+  background-color: var(--color-background-2);
+}
+
+.summary {
+  list-style: none;
+  display: block;
+  position: relative;
+  padding-block: 23px;
+  padding-inline: 18px 54px;
+  color: var(--color-im-dark-blue);
+  line-height: 160%;
+}
+
+.details > .summary::after {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  inset-inline-end: 12px;
+  inset-block-start: 18px;
+  content: url('../../assets/icons/add.svg') !important;
+}
+
+.details[open] > .summary::after {
+  content: url('../../assets/icons/remove.svg') !important;
+}
+
+.detail-description {
+  margin-block-start: -3px;
+  padding-block: 0 23px;
+  padding-inline: 18px;
+  color: var(--color-dark-text);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 160%;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+.detail-description :global(.rich-text-block) {
+  margin: 0;
+}
+
+.details[open] .detail-description {
+  opacity: 1;
+}
+
+.summary::selection,
+.detail-description::selection,
+.detail-description *::selection {
+  background-color: inherit;
+}
+
+@container (min-width: 1024px) {
+  .accordion {
+    padding: 0 80px;
+    gap: 40px;
+  }
+
+  .list {
+    gap: 15px;
+  }
+
+  .description {
+    font-size: 18px;
+    line-height: 160%;
+  }
+
+  .summary {
+    padding-block: 20.5px 20.5px;
+    padding-inline: 30px 66px;
+  }
+
+  .detail-description {
+    margin-block-start: -10.5px;
+    padding-block: 0 20.5px;
+    padding-inline: 30px;
+    font-size: 18px;
+  }
+}

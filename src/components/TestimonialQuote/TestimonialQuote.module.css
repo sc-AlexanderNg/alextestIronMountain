@@ -1,0 +1,87 @@
+.quote-container {
+  display: flex;
+  margin: 30px 20px;
+  container-type: inline-size;
+}
+
+.quote {
+  position: relative;
+  padding-inline: 20px;
+  padding-block-start: 45px;
+  padding-block-end: 0;
+  max-width: 1024px;
+  clear: both;
+  margin: auto;
+}
+
+.quote[data-theme='ltTheme'] {
+  background-color: var(--color-lighter-grey);
+}
+
+.quote[data-theme='dkTheme'] {
+  background-color: var(--color-background-3);
+}
+
+.quote::before {
+  content: '';
+  background-image: url('../../assets/icons/quote.svg');
+  display: block;
+  height: 37px;
+  width: 42px;
+  position: absolute;
+  top: 0;
+  inset-inline-start: 0;
+}
+
+.quote::after {
+  content: '';
+  display: block;
+  height: 1px;
+  position: absolute;
+  top: 20px;
+  inset-inline-end: 0;
+  inset-inline-start: 50px;
+  background-color: var(--color-im-green);
+}
+
+.quote blockquote {
+  color: var(--color-im-dark-blue);
+  font-size: 20px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 160%;
+}
+
+.quote[data-theme='dkTheme'] blockquote {
+  color: var(--color-white);
+}
+
+.quote figcaption {
+  color: var(--color-im-grey);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 131%;
+  letter-spacing: 0.39px;
+  text-transform: capitalize;
+  display: block;
+  margin-top: 10px;
+}
+
+.quote[data-theme='dkTheme'] figcaption {
+  color: var(--color-light-grey);
+}
+
+.quote figcaption cite {
+  font-weight: 300;
+  display: block;
+}
+
+@container (min-width: 920px) {
+  .quote blockquote {
+    font-size: 24px;
+  }
+
+  .quote-container {
+    margin: 30px 0;
+  }
+}

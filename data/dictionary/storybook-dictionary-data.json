@@ -1,0 +1,13 @@
+{
+  "Aria-Role-Navigation": "Navigation",
+  "Aria-Label-OpenMenu": "Open Menu",
+  "Aria-Label-Primary": "Primary",
+  "Aria-Label-CloseMenu": "Close Menu",
+  "MetaData-MetaTitleSuffix": "",
+  "ComponentPatterns": "Component Patterns",
+  "Documentation": "Documentation",
+  "Styleguide": "Styleguide",
+  "GraphQL": "GraphQL",
+  "styleguide-sample": "This is a dictionary entry in English as a demonstration"
+}
+

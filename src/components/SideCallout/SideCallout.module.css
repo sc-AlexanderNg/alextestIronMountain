@@ -1,0 +1,126 @@
+.side-callout-container {
+  width: 100%;
+  margin-bottom: 20px;
+  container-type: inline-size;
+}
+
+.side-callout {
+  width: 100%;
+  border-radius: 5px;
+  background-color: var(--color-white);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.side-callout + * {
+  margin-bottom: 20px;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.side-callout h2 {
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0.02em;
+  color: var(--color-im-dark-blue);
+}
+
+.side-callout p {
+  color: var(--color-im-grey);
+}
+
+.side-callout a {
+  align-self: flex-start !important;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.description a {
+  max-width: max-content;
+}
+
+.description ul img {
+  border-radius: 8px;
+}
+
+.side-callout ul li:has(a > img)::before {
+  display: none !important;
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+.side-callout :global(ul:not(.icon-list, [role='list'])):has(li > a > img) {
+  display: flex;
+  padding-inline-start: 0;
+}
+
+/* Dark Variant */
+
+.side-callout.dark {
+  background-color: var(--color-im-dark-blue);
+}
+
+.side-callout.dark ul {
+  color: var(--color-white);
+}
+
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+.side-callout.dark :global(ul:not(.icon-list, [role='list'])) li::before {
+  border-color: var(--color-im-orange);
+}
+
+/* stylelint-disable selector-pseudo-class-no-unknown */
+/* stylelint-disable-next-line selector-class-pattern */
+.side-callout.dark h2,
+.side-callout.dark p,
+.side-callout.dark a:global(:not(.btn-icon)),
+.side-callout.dark .description {
+  /* stylelint-enable selector-pseudo-class-no-unknown */
+  color: var(--color-white);
+}
+
+/* Has Images Variant */
+
+.side-callout.has-images {
+  border: 1px solid var(--color-light-gray);
+  padding: 30px;
+}
+
+.side-callout.has-images .logo {
+  width: 80px;
+  border-radius: 10px;
+}
+
+.side-callout.has-images h2 {
+  font-size: 22px;
+  line-height: 29px;
+}
+
+@container (min-width: 1280px) {
+  .side-callout {
+    width: 357px;
+    padding: 30px;
+  }
+
+  .side-callout h2 {
+    font-size: 22px;
+    line-height: 29px;
+  }
+
+  /* Has Images Variant */
+  .side-callout.has-images {
+    width: 397px;
+    border-radius: 10px;
+  }
+}

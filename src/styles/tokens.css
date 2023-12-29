@@ -1,0 +1,110 @@
+:root {
+  /**
+  * @tokens Colors
+  * @presenter Color
+  */
+
+  /* PRIMARY COLORS */
+  --color-im-dark-blue: #14477d;
+  --color-im-mid-blue: #1b75bc;
+  --color-im-light-blue: #6dcff6;
+  --color-im-grey: #58595b;
+  --color-im-grey-80: #58595bcc;
+
+  /* SECONDARY COLORS */
+  --color-im-teal: #00a88e;
+  --color-im-yellow: #fd0;
+  --color-im-orange: #f7931e;
+  --color-im-purple: #8a0d71;
+  --color-im-red: #ed1c24;
+  --color-im-green: #8dc13f;
+
+  /* Web Colors */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-alt-blue: #2e68a5;
+  --color-background-1: #f7f7fe;
+  --color-background-2: #ebf0f8;
+  --color-background-3: #023459;
+  --color-light-grey: #ccc;
+  --color-light-gray: #ccc;
+  --color-dark-text: #353637;
+  --color-disabled-gray: #fff6;
+
+  /* Gradients */
+  --color-teal-gradient: linear-gradient(180deg, #6dcff6 0%, #00a88e 100%);
+  --color-purple-gradient: linear-gradient(180deg, #a2115e 0%, #8a0d71 100%);
+  --color-orange-gradient: linear-gradient(180deg, #f7931e 0%, #f4751f 100%);
+  --color-light-blue-gradient: linear-gradient(
+    180deg,
+    #6dcff6 0%,
+    #1b75bc 100%
+  );
+  --color-dark-blue-gradient: linear-gradient(180deg, #1b75bc 0%, #14477d 100%);
+  --color-darker-blue-gradient: linear-gradient(
+    180deg,
+    #235e8b 0%,
+    #0a3b6b 100%
+  );
+
+  /* FONTS */
+  --font-family-header: 'Geometria', 'Calibri', arial, sans-serif;
+  --font-family-body: 'Interstate', 'Calibri', arial, sans-serif;
+
+  /* Desktop :: Headers */
+  --font-header-xl: normal 300 70px / 95% var(--font-family-header);
+  --font-header-h1: normal 300 52px / 95% var(--font-family-header);
+  --font-header-h2: normal 300 42px / 100% var(--font-family-header);
+  --font-header-h3: normal 300 36px / 100% var(--font-family-header);
+  --font-header-h4: normal 400 25px / 125% var(--font-family-body);
+  --font-header-h5: normal 400 18px / 130% var(--font-family-body);
+  --font-modal-header: normal 300 24px / 108% var(--font-family-header);
+
+  /* Mobile :: Headers */
+  --font-header-xl-mobile: normal 300 40px / 100% var(--font-family-header);
+  --font-header-h1-mobile: normal 300 28px / 100% var(--font-family-header);
+  --font-header-h2-mobile: normal 300 28px / 95% var(--font-family-header);
+  --font-header-h3-mobile: normal 300 24px / 95% var(--font-family-header);
+  --font-header-h4-mobile: normal 400 20px / 125% var(--font-family-body);
+  --font-header-h5-mobile: normal 400 13px / 130% var(--font-family-body);
+
+  /* Desktop :: Body */
+  --font-subheader: normal 400 20px / 125% var(--font-family-body);
+  --font-eyebrow: normal 400 16px / 125% var(--font-family-body);
+  --font-body: normal 300 18px / 160% var(--font-family-body);
+  --font-body-sm: normal 300 13px / 130% var(--font-family-body);
+  --font-body-bold: normal 700 18px / 150% var(--font-family-body);
+  --font-list-item: normal 300 18px / 160% var(--font-family-body);
+  --font-icon-list-item: normal 300 13px / 100% var(--font-family-body);
+
+  /* Mobile :: Body */
+  --font-subheader-mobile: normal 400 16px / 125% var(--font-family-body);
+  --font-eyebrow-mobile: normal 400 14px / 125% var(--font-family-body);
+  --font-body-mobile: normal 300 12px / 150% var(--font-family-body);
+  --font-body-bold-mobile: normal 700 12px / 140% var(--font-family-body);
+  --font-body-sm-mobile: normal 300 14px / 160% var(--font-family-body);
+  --font-list-item-mobile: normal 300 14px / 160% var(--font-family-body);
+
+  /**
+  * @tokens-end
+  */
+
+  /**
+  * @tokens Line Heights
+  * @presenter LineHeight
+  */
+  --line-height-xl: clamp(4rem, 2.978vw + 1.774rem, 6.65rem);
+  --line-height-h1: clamp(2.8rem, 2.404vw + 1.164rem, 4.94rem);
+  --line-height-h2: clamp(2.66rem, 1.73vw + 1.241rem, 4.2rem);
+  --line-height-h3: clamp(2.28rem, 1.483vw + 1.063rem, 3.6rem);
+  --line-height-h4: clamp(2.5rem, 0.702vw + 1.391rem, 3.125rem);
+  --line-height-h5: clamp(1.69rem, 0.73vw + 0.878rem, 2.34rem);
+  --line-height-subheading: clamp(2rem, 0.562vw + 1.113rem, 2.5rem);
+  --line-height-eyebrow: clamp(1.75rem, 0.281vw + 1.025rem, 2rem);
+  --line-height-body: clamp(1.8rem, 1.213vw + 0.829rem, 2.88rem);
+  --line-height-small-body: 1.69rem;
+
+  /**
+  * @tokens-end
+  */
+}

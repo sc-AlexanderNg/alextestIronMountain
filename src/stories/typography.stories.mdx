@@ -1,0 +1,104 @@
+import { Unstyled, Meta, Source, Typeset } from '@storybook/blocks';
+
+export const sampleText =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+
+export const bodyText =
+  'Body Text Lorem ipsum dolor sit amet, <b>bold text</b> consectetur <i>italicized text</i> adipiscing elit. Consectetur adipiscing elit, sed do eiusmod <a>Inline link</a> tempor incididunt ut labore et dolore magna aliqua.';
+
+<Meta title="Design/Typography" />
+
+<Unstyled>
+<div>
+  <div class="font-header-xl">XL {sampleText}</div>
+  <div style={{marginTop: "15px"}}>IM Dark Blue - Geometria 300 70px / 95% Line Spacing </div>
+  <div>Screen < 1280px: 40px / 100%</div>
+  <Source code={`<div class="font-header-xl">Text</div>`} />
+  <br />
+
+  <div class="font-header-h1">H1 {sampleText}</div>
+  <div style={{marginTop: "15px"}}>IM Dark Blue - Geometria 300 52px / 95% Line Spacing</div>
+  <div>Screen < 1280px: 28px / 100%</div>
+  <Source code={`<div class="font-header-h1">Text</div>`} />
+  <br />
+
+  <div class="font-header-h2">H2 {sampleText}</div>
+  <div style={{marginTop: "15px"}}>IM Dark Blue - Geometria 300 42px / 100% Line Spacing</div>
+  <div>Screen < 1280px: 28px / 95%</div>
+  <Source code={`<div class="font-header-h2">Text</div>`} />
+  <br />
+
+  <div class="font-header-h3">H3 {sampleText}</div>
+  <div style={{marginTop: "15px"}}>IM Dark Blue - Geometria 300 36px / 100% Line Spacing</div>
+  <div>Screen < 1280px: 24px / 95%</div>
+  <Source code={`<div class="font-header-h3">Text</div>`} />
+  <br />
+
+  <div class="font-header-h4">H4 {sampleText}</div>
+  <div style={{marginTop: "15px"}}>IM Dark Blue - Interstate 400 25px / 125% Line Spacing / 0.5px Letter Spacing</div>
+  <div>Screen < 1280px: 20px / 125% / 0px</div>
+  <Source code={`<div class="font-header-h4">Text</div>`} />
+  <br />
+
+  <div class="font-header-h5">H5 {sampleText}</div>
+  <div style={{marginTop: "15px"}}>IM Dark Blue - Interstate 400 18px / 130% Line Spacing / 0.26px Letter Spacing</div>
+  <div>Screen < 1280px: 13px / 130% / 0.36px</div>
+  <Source code={`<div class="font-header-h5">Text</div>`} />
+  <br />
+
+  <div class="font-subheader">Subheading</div>
+  <div style={{marginTop: "15px"}}>IM Grey - Interstate 400 20px / 125% Line Spacing / 0.4px Letter Spacing</div>
+  <div>Screen < 1280px: 13px / 130% / 0px</div>
+  <Source code={`<div class="font-subheader">Text</div>`} />
+  <br />
+
+  <div class="font-eyebrow">eyebrow</div>
+  <div style={{marginTop: "15px"}}>IM Grey 80% - Interstate 400 capitalize 16px / 125% Line Spacing</div>
+  <div>Screen < 1280px: 14px / 125%</div>
+  <Source code={`<div class="font-eyebrow">Text</div>`} />
+  <br />
+
+  <div class="font-body">
+    Body Text Lorem ipsum dolor sit amet, <b>bold text</b> consectetur adipiscing elit. Consectetur adipiscing elit, sed do eiusmod <a>Inline link</a> tempor incididunt ut labore et dolore magna aliqua.
+    Lorem ipsum dolor sit amet, consectetur <i>italicized text</i> adipiscing elit. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  </div>
+  <div style={{marginTop: "15px"}}>IM Grey - Interstate 18px / 160% Line Spacing</div>
+  <div>IM Grey - Interstate 300 18px / 160% Line Spacing</div>
+  <div>IM Grey - Interstate 700 Bold 18px / 150% Line Spacing</div>
+  <div>IM Grey - Interstate 300 Italic 18px / 160% Line Spacing</div>
+  <div>IM Mid Blue - Interstate 700 18px / 150% Line Spacing</div>
+  <div>Screen < 1280px: 12px / 150%</div>
+  <Source code={`<div class="font-body">Text <a>Link</a> <b>Bold Text</b> <i>Italicized Text</i> Text</div>`} />
+  {' '}
+  <br />
+
+  <div class="font-list">
+    <ul>
+    <li>Unordered List Item <b>bold text</b></li>
+    <li>Unordered List Item <i>italicized text</i></li>
+    <li>Unordered List Item</li>
+  </ul>
+  </div>
+  <div style={{marginTop: "15px"}}>IM Grey - Interstate 300 18px / 160% Line Spacing</div>
+  <div>Screen < 1280px: 14px / 160%</div>
+  <Source code={`<div class="font-list">
+  <ul>
+    <li>Unordered List Item <b>boldtext</b></li>
+    <li>Unordered List Item <i>italicizedtext</i></li>
+    <li>Unordered List Item</li>
+  </ul>
+</div>`} />
+  {' '}
+  <br />
+
+  <div class="font-body-sm">
+    Small Body Text Lorem ipsum dolor sit amet, <b>bold text</b> consectetur adipiscing elit. Consectetur adipiscing elit, sed do eiusmod <a>Inline link</a> tempor incididunt ut labore et dolore magna aliqua.
+    Lorem ipsum dolor sit amet, consectetur <i>italicized text</i> adipiscing elit. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  </div>
+  <div style={{marginTop: "15px"}}>IM Grey - Interstate 300 13px / 130% Line Spacing</div>
+  <div>Screen < 1280px: 14px / 160%</div>
+  <Source code={`<div class="font-body-sm">Small Body Text</div>`} />
+  <br />
+
+  </div>
+</Unstyled>

@@ -1,0 +1,38 @@
+.autocomplete [class='aa-Form']:focus-within {
+  box-shadow: none;
+  border-radius: 10px;
+  border: 1px solid var(--color-light-grey);
+  background: var(--color-white);
+  width: 450px;
+}
+
+.autocomplete:not(:focus-within)
+  [aria-expanded='false']
+  [class='aa-InputWrapper'] {
+  display: none;
+}
+
+.autocomplete:not(:focus-within)
+  [aria-expanded='false']
+  [class='aa-InputWrapperSuffix'] {
+  display: none;
+}
+
+.autocomplete:not(:focus-within) [aria-expanded='false'] [class='aa-Form'] {
+  border: none;
+}
+
+.autocomplete [class='aa-SubmitIcon'] {
+  visibility: hidden;
+}
+
+.autocomplete [class='aa-ClearButton'] {
+  position: absolute;
+  inset-inline-end: 0;
+}
+
+.autocomplete [class='aa-SubmitButton'] {
+  background-image: url('../../assets/icons/search.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
