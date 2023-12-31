@@ -112,6 +112,10 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    //Redirects have been split and moved into plugins in /lib/next-config/plugins
+    return [];
+  },
 };
 
 module.exports = () => {
