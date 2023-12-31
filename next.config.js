@@ -111,11 +111,13 @@ const nextConfig = {
         destination: `${jssConfig.sitecoreApiHost}/sitecore/service/:path*`,
       },
     ];
-  },
+  }
+  /* alextest
   async redirects() {
     //Redirects have been split and moved into plugins in /lib/next-config/plugins
     return [];
   },
+  */
 };
 
 module.exports = () => {
