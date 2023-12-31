@@ -112,8 +112,6 @@ const nextConfig = {
       },
     ];
   },
-  /* alextest  remove async redirect */
-
 };
 
 module.exports = () => {
