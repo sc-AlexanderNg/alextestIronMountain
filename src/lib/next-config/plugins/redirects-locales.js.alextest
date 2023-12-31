@@ -139,4 +139,4 @@ const localeRedirects = (nextConfig = {}) => {
   };
 };
 
-module.exports = localeRedirects;
+// alextest module.exports = localeRedirects;

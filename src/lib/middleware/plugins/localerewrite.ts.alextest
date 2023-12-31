@@ -22,4 +22,4 @@ class LocaleRewritePlugin implements MiddlewarePlugin {
   }
 }
 
-export const localerewritePlugin = new LocaleRewritePlugin();
+//alextest export const localerewritePlugin = new LocaleRewritePlugin();
