@@ -1,4 +1,4 @@
-import type { NextRequest, NextFetchEvent } from 'next/server';
+import type { NextFetchEvent, NextRequest } from 'next/server';
 import middleware from 'lib/middleware';
 
 // eslint-disable-next-line
@@ -14,7 +14,10 @@ export const config = {
    * 3. /sitecore/api (Sitecore API routes)
    * 4. /- (Sitecore media)
    * 5. /healthz (Health check)
-   * 6. all root files inside /public
+   * 6. all root files inside /public (e.g. /favicon.ico)
    */
-  matcher: ['/', '/((?!api/|_next/|healthz|sitecore/api/|-/|favicon.ico|sc_logo.svg).*)'],
+  matcher: [
+    '/',
+    '/((?!api/|_next/|healthz|sitecore/api/|-/|[\\w-]+\\.\\w+).*)',
+  ],
 };
