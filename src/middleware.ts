@@ -1,4 +1,4 @@
-import type { NextRequest, NextFetchEvent } from 'next/server';
+import type { NextFetchEvent, NextRequest  } from 'next/server';
 import middleware from 'lib/middleware';
 
 // eslint-disable-next-line
