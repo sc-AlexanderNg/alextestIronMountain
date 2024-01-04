@@ -18,8 +18,8 @@ export const config = {
    */
   matcher: [
     '/',
-    //'/((?!api/|_next/|healthz|sitecore/api/|-/|[\\w-]+\\.\\w+).*)',
-    '/(.*)'
+    '/((?!api/|_next/|healthz|sitecore/api/|-/|[\\w-]+\\.\\w+).*)',
+    //'/(.*)'
   ],
 
 };
