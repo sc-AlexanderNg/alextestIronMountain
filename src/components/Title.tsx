@@ -1,9 +1,10 @@
+import React from 'react';
 import {
   Link,
-  LinkField,
   Text,
-  TextField,
   useSitecoreContext,
+  LinkField,
+  TextField,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 interface Fields {
@@ -48,7 +49,6 @@ type ComponentContentProps = {
 
 const ComponentContent = (props: ComponentContentProps) => {
   const id = props.id;
-
   return (
     <div className={`component title ${props.styles}`} id={id ? id : undefined}>
       <div className="component-content">
@@ -59,8 +59,7 @@ const ComponentContent = (props: ComponentContentProps) => {
 };
 
 export const Default = (props: TitleProps): JSX.Element => {
-  const datasource =
-    props?.fields?.data?.datasource || props?.fields?.data?.contextItem;
+  const datasource = props.fields?.data?.datasource || props.fields?.data?.contextItem;
   const { sitecoreContext } = useSitecoreContext();
 
   const text: TextField = {
@@ -74,10 +73,8 @@ export const Default = (props: TitleProps): JSX.Element => {
       editable: true,
     },
   };
-
   if (sitecoreContext.pageState !== 'normal') {
     link.value.querystring = `sc_site=${datasource?.url?.siteName}`;
-
     if (!text.value) {
       text.value = 'Title field';
       link.value.href = '#';
@@ -85,10 +82,7 @@ export const Default = (props: TitleProps): JSX.Element => {
   }
 
   return (
-    <ComponentContent
-      styles={props.params.styles}
-      id={props.params.RenderingIdentifier}
-    >
+    <ComponentContent styles={props.params.styles} id={props.params.RenderingIdentifier}>
       <>
         {sitecoreContext.pageState === 'edit' ? (
           <Text field={text} />

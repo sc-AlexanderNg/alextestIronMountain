@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   ComponentParams,
   ComponentRendering,
@@ -10,9 +11,7 @@ interface ComponentProps {
 }
 
 export const Default = (props: ComponentProps): JSX.Element => {
-  const styles = `${props.params.GridParameters ?? ''} ${
-    props.params.Styles ?? ''
-  }`.trimEnd();
+  const styles = `${props.params.GridParameters ?? ''} ${props.params.Styles ?? ''}`.trimEnd();
   const rowStyles = [
     props.params.Styles1,
     props.params.Styles2,
@@ -27,23 +26,16 @@ export const Default = (props: ComponentProps): JSX.Element => {
   const id = props.params.RenderingIdentifier;
 
   return (
-    <div
-      className={`component row-splitter ${styles}`}
-      id={id ? id : undefined}
-    >
+    <div className={`component row-splitter ${styles}`} id={id ? id : undefined}>
       {enabledPlaceholders.map((ph, index) => {
         const phKey = `row-${ph}-{*}`;
-        const phStyles = `${rowStyles[Number(ph) - 1] ?? ''}`.trimEnd();
+        const phStyles = `${rowStyles[+ph - 1] ?? ''}`.trimEnd();
 
         return (
           <div key={index} className={`container-fluid ${phStyles}`.trimEnd()}>
             <div key={index}>
               <div key={index} className="row">
-                <Placeholder
-                  key={index}
-                  name={phKey}
-                  rendering={props.rendering}
-                />
+                <Placeholder key={index} name={phKey} rendering={props.rendering} />
               </div>
             </div>
           </div>
