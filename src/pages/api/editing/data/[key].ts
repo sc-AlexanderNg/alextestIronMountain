@@ -1,4 +1,5 @@
 import { EditingDataMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing';
+
 /**
  * This Next.js API route is used to handle Sitecore editor data storage and retrieval by key
  * on serverless deployment architectures (e.g. Vercel) via the `ServerlessEditingDataService`.
@@ -12,7 +13,7 @@ import { EditingDataMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/editing
 export const config = {
   api: {
     bodyParser: {
-      sizeLimit: '2mb',
+      sizeLimit: '10mb',
     },
     responseLimit: false,
   },

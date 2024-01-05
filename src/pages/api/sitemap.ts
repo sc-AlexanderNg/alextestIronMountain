@@ -1,12 +1,12 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import {
   AxiosDataFetcher,
-  GraphQLSitemapXmlService,
   AxiosResponse,
+  GraphQLSitemapXmlService,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
-import { siteResolver } from 'lib/site-resolver';
-import config from 'temp/config';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import config from '../../temp/config';
+import { getPublicUrl } from 'src/helpers/URLHelper';
+import { siteResolver } from '../../lib/site-resolver';
 
 const ABSOLUTE_URL_REGEXP = '^(?:[a-z]+:)?//';
 
@@ -19,7 +19,7 @@ const sitemapApi = async (
   } = req;
 
   // Resolve site based on hostname
-  const hostName = req.headers['host']?.split(':')[0] || 'localhost';
+  const hostName = req.headers.host?.split(':')[0] || 'localhost';
   const site = siteResolver.getByHost(hostName);
 
   // create sitemap graphql service
@@ -35,7 +35,10 @@ const sitemapApi = async (
   // if sitemap is match otherwise redirect to 404 page
   if (sitemapPath) {
     const isAbsoluteUrl = sitemapPath.match(ABSOLUTE_URL_REGEXP);
-    const sitemapUrl = isAbsoluteUrl ? sitemapPath : `${config.sitecoreApiHost}${sitemapPath}`;
+    const sitemapUrl = isAbsoluteUrl
+      ? sitemapPath
+      : `${config.sitecoreApiHost}${sitemapPath}`;
+
     res.setHeader('Content-Type', 'text/xml;charset=utf-8');
 
     // need to prepare stream from sitemap url

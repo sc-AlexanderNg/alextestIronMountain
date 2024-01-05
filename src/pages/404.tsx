@@ -1,15 +1,17 @@
-import config from 'temp/config';
 import {
+  ErrorPages,
   GraphQLErrorPagesService,
   SitecoreContext,
-  ErrorPages,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { SitecorePageProps } from 'lib/page-props';
-import NotFound from 'src/NotFound';
-import { componentBuilder } from 'temp/componentBuilder';
-import Layout from 'src/Layout';
 import { GetStaticProps } from 'next';
+import Layout from 'src/Layout';
+import NotFound from 'src/NotFound';
+import { SitecorePageProps } from 'lib/page-props';
+import { componentBuilder } from 'temp/componentBuilder';
+import config from 'temp/config';
 import { siteResolver } from 'lib/site-resolver';
+// eslint-disable-next-line sort-imports
+import { getLocale } from 'src/helpers/LocaleHelper';
 
 const Custom404 = (props: SitecorePageProps): JSX.Element => {
   if (!(props && props.layoutData)) {
@@ -32,19 +34,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,
     siteName: site.name,
-    language: context.locale || config.defaultLanguage,
-    retries:
-      (process.env.GRAPH_QL_SERVICE_RETRIES &&
-        parseInt(process.env.GRAPH_QL_SERVICE_RETRIES, 10)) ||
-      0,
+    language: getLocale(context.locale) || config.defaultLanguage,
   });
+
   let resultErrorPages: ErrorPages | null = null;
 
-  if (!process.env.DISABLE_SSG_FETCH) {
+  if (process.env.DISABLE_SSG_FETCH === 'false') {
     try {
       resultErrorPages = await errorPagesService.fetchErrorPages();
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log('Error occurred while fetching error pages');
+
+      // eslint-disable-next-line no-console
       console.log(error);
     }
   }
