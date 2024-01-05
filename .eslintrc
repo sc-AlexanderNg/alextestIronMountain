@@ -32,16 +32,6 @@
       "error",
       "prefer-double"
     ],
-    "prettier/prettier": [
-      "warn",
-      {
-        "endOfLine": "auto",
-        "trailingComma": "es5",
-        "tabWidth": 2,
-        "semi": true,
-        "singleQuote": true
-      }
-    ],
     "no-shadow": "off",
   },
   "globals": {

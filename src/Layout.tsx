@@ -1,7 +1,7 @@
 /**
  * This Layout is needed for Starter Kit.
  */
-import { Field, HTMLLink, LayoutServiceData, Placeholder } from '@sitecore-jss/sitecore-jss-nextjs';
+import {Field,HTMLLink,LayoutServiceData,Placeholder} from '@sitecore-jss/sitecore-jss-nextjs';
 import { getPublicUrl } from '@sitecore-jss/sitecore-jss-nextjs/utils';
 import Head from 'next/head';
 import React from 'react';
