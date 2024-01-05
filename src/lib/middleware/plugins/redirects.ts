@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { MiddlewarePlugin } from '..';
 import { RedirectsMiddleware } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
 import config from 'temp/config';
+import { MiddlewarePlugin } from '..';
 import { siteResolver } from 'lib/site-resolver';
 
 class RedirectsPlugin implements MiddlewarePlugin {
@@ -14,45 +14,9 @@ class RedirectsPlugin implements MiddlewarePlugin {
       apiKey: config.sitecoreApiKey,
       // These are all the locales you support in your application.
       // These should match those in your next.config.js (i18n.locales).
-      locales: [
-        'ar-ae',
-        'de-de',
-        'en',
-        'en-ae',
-        'en-au',
-        'en-ca',
-        'en-gb',
-        'en-ie',
-        'en-ls',
-        'en-nz',
-        'en-sg',
-        'es-es',
-        'es-mx',
-        'it-it',
-        'nl-nl',
-        'pt-br',
-        'tr-tr',
-        'fr-ca',
-        'es-co',
-        'ar-sa',
-        'en-sa',
-        'en-in',
-        'fr-fr',
-        'ro-ro',
-        'el-gr',
-        'de-at',
-        'zh-cn',
-        'es-cl',
-        'ar-eg',
-        'en-eg',
-        'en-ch',
-        'fr-ch',
-        'de-ch',
-        'ar-kw',
-        'en-kw',
-      ],
+      locales: ['en'],
       // This function determines if a route should be excluded from RedirectsMiddleware.
-      // Certain paths are ignored by default (e.g. files and Next.js API routes), but you may wish to exclude more.
+      // Certain paths are ignored by default (e.g. Next.js API routes), but you may wish to exclude more.
       // This is an important performance consideration since Next.js Edge middleware runs on every request.
       excludeRoute: () => false,
       // This function determines if the middleware should be turned off.
