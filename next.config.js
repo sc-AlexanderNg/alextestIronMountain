@@ -31,7 +31,7 @@ const nextConfig = {
   // Enable React Strict Mode
   reactStrictMode: true,
 
-123  async rewrites() {
+  async rewrites() {
     // When in connected mode we want to proxy Sitecore paths off to Sitecore
     return [
       // API endpoints
