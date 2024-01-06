@@ -1,17 +1,15 @@
+import Head from 'next/head';
 import {
-  ErrorPages,
   GraphQLErrorPagesService,
   SitecoreContext,
+  ErrorPages,
 } from '@sitecore-jss/sitecore-jss-nextjs';
-import { GetStaticProps } from 'next';
-import Head from 'next/head';
-import Layout from 'src/Layout';
 import { SitecorePageProps } from 'lib/page-props';
+import Layout from 'src/Layout';
 import { componentBuilder } from 'temp/componentBuilder';
+import { GetStaticProps } from 'next';
 import config from 'temp/config';
 import { siteResolver } from 'lib/site-resolver';
-// eslint-disable-next-line sort-imports
-import { getLocale } from 'src/helpers/LocaleHelper';
 
 /**
  * Rendered in case if we have 500 error
@@ -23,10 +21,7 @@ const ServerError = (): JSX.Element => (
     </Head>
     <div style={{ padding: 10 }}>
       <h1>500 Internal Server Error</h1>
-      <p>
-        There is a problem with the resource you are looking for, and it cannot
-        be displayed.
-      </p>
+      <p>There is a problem with the resource you are looking for, and it cannot be displayed.</p>
       <a href="/">Go to the Home page</a>
     </div>
   </>
@@ -53,21 +48,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
     endpoint: config.graphQLEndpoint,
     apiKey: config.sitecoreApiKey,
     siteName: site.name,
-    language:
-      getLocale(context.locale) ||
-      context.defaultLocale ||
-      config.defaultLanguage,
+    language: context.locale || context.defaultLocale || config.defaultLanguage,
+    retries:
+      (process.env.GRAPH_QL_SERVICE_RETRIES &&
+        parseInt(process.env.GRAPH_QL_SERVICE_RETRIES, 10)) ||
+      0,
   });
   let resultErrorPages: ErrorPages | null = null;
 
-  if (process.env.DISABLE_SSG_FETCH === 'false') {
+  if (!process.env.DISABLE_SSG_FETCH) {
     try {
       resultErrorPages = await errorPagesService.fetchErrorPages();
     } catch (error) {
-      // eslint-disable-next-line no-console
       console.log('Error occurred while fetching error pages');
-
-      // eslint-disable-next-line no-console
       console.log(error);
     }
   }

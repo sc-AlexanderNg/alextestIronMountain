@@ -1,9 +1,9 @@
 import {
-  ComponentPropsCollection,
   DictionaryPhrases,
-  HTMLLink,
+  ComponentPropsCollection,
   LayoutServiceData,
   SiteInfo,
+  HTMLLink,
 } from '@sitecore-jss/sitecore-jss-nextjs';
 
 /**

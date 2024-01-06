@@ -1,6 +1,11 @@
-/* eslint-disable */
-const Scripts = (): JSX.Element | null => {
-  return null;
+import CdpPageView from 'components/CdpPageView';
+
+const Scripts = (): JSX.Element => {
+  return (
+    <>
+      <CdpPageView />
+    </>
+  );
 };
 
 export default Scripts;

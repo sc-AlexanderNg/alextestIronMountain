@@ -1,16 +1,10 @@
-/* eslint-disable sort-imports */
 import { GetServerSidePropsContext, GetStaticPropsContext } from 'next';
-import {
-  DictionaryService,
-  LayoutService,
-} from '@sitecore-jss/sitecore-jss-nextjs';
+import { DictionaryService, LayoutService } from '@sitecore-jss/sitecore-jss-nextjs';
 import { dictionaryServiceFactory } from 'lib/dictionary-service-factory';
 import { layoutServiceFactory } from 'lib/layout-service-factory';
 import { SitecorePageProps } from 'lib/page-props';
 import { pathExtractor } from 'lib/extract-path';
 import { Plugin, isServerSidePropsContext } from '..';
-import { getLocale } from 'src/helpers/LocaleHelper';
-import { rerouteMediaUrls } from 'src/helpers/URLHelper';
 
 class NormalModePlugin implements Plugin {
   private dictionaryServices: Map<string, DictionaryService>;
@@ -23,31 +17,23 @@ class NormalModePlugin implements Plugin {
     this.layoutServices = new Map<string, LayoutService>();
   }
 
-  async exec(
-    props: SitecorePageProps,
-    context: GetServerSidePropsContext | GetStaticPropsContext
-  ) {
+  async exec(props: SitecorePageProps, context: GetServerSidePropsContext | GetStaticPropsContext) {
     if (context.preview) return props;
 
     // Get normalized Sitecore item path
     const path = pathExtractor.extract(context.params);
 
     // Use context locale if Next.js i18n is configured, otherwise use default site language
-    props.locale = getLocale(context.locale) ?? props.site.language;
+    props.locale = context.locale ?? props.site.language;
 
     // Fetch layout data, passing on req/res for SSR
     const layoutService = this.getLayoutService(props.site.name);
-
     props.layoutData = await layoutService.fetchLayoutData(
       path,
       props.locale,
       // eslint-disable-next-line prettier/prettier
-      isServerSidePropsContext(context)
-        ? (context as GetServerSidePropsContext).req
-        : undefined,
-      isServerSidePropsContext(context)
-        ? (context as GetServerSidePropsContext).res
-        : undefined
+      isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).req : undefined,
+      isServerSidePropsContext(context) ? (context as GetServerSidePropsContext).res : undefined
     );
 
     if (!props.layoutData.sitecore.route) {
@@ -58,14 +44,11 @@ class NormalModePlugin implements Plugin {
       props.notFound = true;
     }
 
-    props.layoutData = rerouteMediaUrls(props.layoutData);
-
-    // Fetch dictionary data
-    const dictionaryService = this.getDictionaryService(props.site.name);
-
-    props.dictionary = await dictionaryService.fetchDictionaryData(
-      getLocale(props.locale)
-    );
+    // Fetch dictionary data if layout data was present
+    if (!props.notFound) {
+      const dictionaryService = this.getDictionaryService(props.site.name);
+      props.dictionary = await dictionaryService.fetchDictionaryData(props.locale);
+    }
 
     // Initialize links to be inserted on the page
     props.headLinks = [];
@@ -80,7 +63,6 @@ class NormalModePlugin implements Plugin {
     }
 
     const dictionaryService = dictionaryServiceFactory.create(siteName);
-
     this.dictionaryServices.set(siteName, dictionaryService);
 
     return dictionaryService;
@@ -93,7 +75,6 @@ class NormalModePlugin implements Plugin {
     }
 
     const layoutService = layoutServiceFactory.create(siteName);
-
     this.layoutServices.set(siteName, layoutService);
 
     return layoutService;

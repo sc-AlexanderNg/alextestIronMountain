@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import { NextPage } from 'next';
+import Head from 'next/head';
 
 interface ErrorPageProps {
   statusCode?: number | null | undefined;

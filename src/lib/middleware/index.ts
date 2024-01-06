@@ -1,8 +1,6 @@
-//use my xmcloud's code
-
 import { NextResponse } from 'next/server';
 import type { NextFetchEvent, NextRequest } from 'next/server';
-//import { debug } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
+import { debug } from '@sitecore-jss/sitecore-jss-nextjs/middleware';
 import * as plugins from 'temp/middleware-plugins';
 
 export interface MiddlewarePlugin {
@@ -22,15 +20,15 @@ export default async function middleware(
 ): Promise<NextResponse> {
   const response = NextResponse.next();
 
-//  debug.common('next middleware start');
+  debug.common('next middleware start');
 
-//  const start = Date.now();
+  const start = Date.now();
 
   const finalRes = await (Object.values(plugins) as MiddlewarePlugin[])
     .sort((p1, p2) => p1.order - p2.order)
     .reduce((p, plugin) => p.then((res) => plugin.exec(req, res, ev)), Promise.resolve(response));
 
-//  debug.common('next middleware end in %dms', Date.now() - start);
+  debug.common('next middleware end in %dms', Date.now() - start);
 
   return finalRes;
 }

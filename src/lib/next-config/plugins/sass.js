@@ -1,5 +1,5 @@
 const path = require('path');
-const { create } = require('sass-alias');
+const SassAlias = require('sass-alias');
 
 /**
  * @param {import('next').NextConfig} nextConfig
@@ -7,10 +7,10 @@ const { create } = require('sass-alias');
  const sassPlugin = (nextConfig = {}) => {
   return Object.assign({}, nextConfig, {
       sassOptions: {
-        importer: create({
+        importer: new SassAlias({
           '@sass': path.join(__dirname, '../../../assets', 'sass'),
           '@fontawesome': path.join(__dirname, '../../../../node_modules', 'font-awesome'),
-        }),
+        }).getImporter(),
       },
     });
 };
