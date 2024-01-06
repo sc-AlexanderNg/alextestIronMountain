@@ -22,7 +22,7 @@ export default async function middleware(
 
 //  debug.common('next middleware start');
 
-  const start = Date.now();
+//  const start = Date.now();
 
   const finalRes = await (Object.values(plugins) as MiddlewarePlugin[])
     .sort((p1, p2) => p1.order - p2.order)
