@@ -37,7 +37,7 @@ export class LayoutServiceFactory {
           apiHost: config.sitecoreApiHost,
           apiKey: config.sitecoreApiKey,
           siteName,
-          configurationName: config.layoutServiceConfigurationName,
+          configurationName: "alextestConfigName",// config.layoutServiceConfigurationName,
         });
   }
 }
