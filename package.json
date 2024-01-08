@@ -64,7 +64,6 @@
     "react-owl-carousel": "^2.3.3",
     "react-responsive": "9.0.2",
     "react-youtube": "^10.1.0",
-    "regex-parser": "^2.2.11",
     "swiper": "10.0.4",
     "use-places-autocomplete": "^4.0.0"
   },
