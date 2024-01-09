@@ -59,7 +59,7 @@
     "@graphql-codegen/typescript-resolvers": "^2.7.12",
     "@graphql-typed-document-node/core": "^3.1.1",
     "@sitecore-jss/sitecore-jss-cli": "^21.2.1",
-    "@types/memory-cache": "^0.2.5",
+    "@sitecore-jss/sitecore-jss-dev-tools": "~21.5.0",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
