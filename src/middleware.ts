@@ -24,6 +24,7 @@ export const config = {
     '/((?!api/|_next/|healthz|sitecore/api/|-/|[\\w-]+\\.\\w+).*)',
   ],
    */
-  //matcher: ['/', '/((?!api/|_next/|healthz|sitecore/api/|-/|favicon.ico|sc_logo.svg).*)'],
-  matcher: ['/', '/((?!api/|_next/|healthz|sitecore/api/|-/|[\\w-]+\\.\\w+).*)'],
+  // issue is solved with this >>matcher: ['/', '/((?!api/|_next/|healthz|sitecore/api/|-/|favicon.ico|sc_logo.svg).*)'],
+  matcher: ['/', '/((?!api/|_next/|healthz|sitecore/api/|-/|favicon.ico|sc_logo.svg).*)'],
+  // issue occurs with this >> matcher: ['/', '/((?!api/|_next/|healthz|sitecore/api/|-/|[\\w-]+\\.\\w+).*)'],
 };
